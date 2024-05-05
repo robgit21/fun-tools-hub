@@ -1,0 +1,14 @@
+/* Container für die Boxen */
+.container {
+    display: flex; /* Verwendet Flexbox für das Layout */
+    flex-wrap: wrap; /* Ermöglicht Zeilenumbruch */
+    justify-content: center; /* Zentriert die Boxen horizontal */
+}
+
+/* Einzelne Boxen */
+.box {
+    width: 100px; /* Breite der Boxen */
+    height: 100px; /* Höhe der Boxen */
+    background-color: #f0f0f0; /* Hintergrundfarbe der Boxen */
+    margin: 10px; /* Äußerer Abstand zwischen den Boxen */
+}
