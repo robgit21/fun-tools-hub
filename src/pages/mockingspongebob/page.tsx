@@ -53,7 +53,7 @@ const Page: React.FC = () => {
     if (container) {
       // Alle CSS-Regeln, die die Größe des Containers beeinflussen, vorübergehend entfernen
       const previousStyles = container.style.cssText;
-      container.style.cssText = "";
+      // container.style.cssText = "";
 
       // HTML-Inhalt in Canvas rendern, wobei die Größe des Canvas der Größe des Inhalts entspricht
       html2canvas(container, {
