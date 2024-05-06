@@ -1,6 +1,5 @@
 import styles from "./mockingSpongebobComp.module.css";
 import Image from "next/image";
-import MockingSpongebobImg from "../../../../public/img/MockingSpongebobImg.jpg";
 import IToolCardProps from "../../../../interfaces/IToolCardProps";
 import Link from "next/link";
 

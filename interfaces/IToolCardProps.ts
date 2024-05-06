@@ -5,7 +5,7 @@ interface IToolCardProps {
     created: string;
     updated: string;
     description: string;
-    img:StaticImageData;
+    img: StaticImageData;
     alt: string;
     href: string;
 }
