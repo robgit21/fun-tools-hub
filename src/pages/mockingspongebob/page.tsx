@@ -13,8 +13,6 @@ const Page: React.FC = () => {
 
   const [windowWidth, setWindowWidth] = useState(0);
 
-  let maxLetterSize = 80;
-
   useEffect(() => {
     // Funktion zum Aktualisieren der Fensterbreite
     const updateWindowWidth = () => {
@@ -107,9 +105,17 @@ const Page: React.FC = () => {
 
   return (
     <div>
-<<<<<<< HEAD
       {windowWidth >= 768 && (
-=======
+        <div
+          ref={containerRef}
+          className={`${styles.imgContainer} ${styles.hidden}`}
+        >
+          {/* Inhalt, der nur gerendert wird, wenn die Fensterbreite größer oder gleich 768px ist */}
+        </div>
+      )}
+
+<div>
+
       <div
         ref={windowWidth >= 768 ? containerRef : null}
         className={`${styles.imgContainer} ${styles.hidden}`}
@@ -118,146 +124,15 @@ const Page: React.FC = () => {
           className={`${styles.imgOutputContainer}  ${styles.impact_font}  ${
             styles.textContainer
           } ${
-            inputText.length > maxLetterSize
-              ? styles.smallText
-              : styles.defaultSizeText
-          }`}
-        >
-          {inputText}
         </div>
->>>>>>> Features-Branch
-        <div>
-          <div className={`${styles.imgContainer} ${styles.hidden}`}>
-            <div
-              className={`${styles.imgOutputContainer}  ${
-                styles.impact_font
-              }  ${styles.textContainer} ${
-                inputText.length > 180
-                  ? styles.smallText
-                  : styles.defaultSizeText
-              }`}
-            >
-              {inputText}
-            </div>
-            <div>
-              <Image
-                src={MockingSpongebob_hidden}
-                width={200}
-                height={200}
-                alt="Mocking Spongebob"
-                priority={true} // oder priority="high"
-              />
-            </div>
-          </div>
-
-          <div ref={containerRef} className={`${styles.imgContainer}`}>
-            <div
-              className={`${styles.imgOutputContainer} ${
-                styles.textContainer
-              } ${styles.impact_font} ${
-                inputText.length > 180
-                  ? styles.smallText
-                  : styles.defaultSizeText
-              }`}
-            >
-              {inputText}
-            </div>
-            <div>
-              <Image
-                src={MockingSpongebob_not_hidden}
-                width={200}
-                height={200}
-                alt="Mocking Spongebob"
-                priority={true} // oder priority="high"f
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {windowWidth < 768 && (
-        <div>
-          <div
-            ref={containerRef}
-            className={`${styles.imgContainer} ${styles.hidden}`}
-          >
-            <div
-              className={`${styles.imgOutputContainer}  ${
-                styles.impact_font
-              }  ${styles.textContainer} ${
-                inputText.length > 180
-                  ? styles.smallText
-                  : styles.defaultSizeText
-              }`}
-            >
-              {inputText}
-            </div>
-            <div>
-              <Image
-                src={MockingSpongebob_hidden}
-                width={200}
-                height={200}
-                alt="Mocking Spongebob"
-                priority={true} // oder priority="high"
-              />
-            </div>
-          </div>
-
-          <div className={`${styles.imgContainer}`}>
-            <div
-              className={`${styles.imgOutputContainer} ${
-                styles.textContainer
-              } ${styles.impact_font} ${
-                inputText.length > 180
-                  ? styles.smallText
-                  : styles.defaultSizeText
-              }`}
-            >
-              {inputText}
-            </div>
-            <div>
-              <Image
-                src={MockingSpongebob_not_hidden}
-                width={200}
-                height={200}
-                alt="Mocking Spongebob"
-                priority={true} // oder priority="high"
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div>
-        {/* Verwende onChange statt onKeyUp, um Änderungen in Echtzeit zu erfassen */}
-        <textarea
-          maxLength={130}
-          className={styles.textarea}
-          onChange={handleInputChange}
-        />
-      </div>
-
-<<<<<<< HEAD
-      <div>{windowWidth}</div>
-=======
-      <div
-        ref={windowWidth < 768 ? containerRef : null}
-        className={`${styles.imgContainer}`}
-      >
-        <div
-          className={`${styles.imgOutputContainer} ${styles.textContainer} ${
-            styles.impact_font
-          } ${
-            inputText.length > maxLetterSize
-              ? styles.smallText
-              : styles.defaultSizeText
+            inputText.length > 180 ? styles.smallText : styles.defaultSizeText
           }`}
         >
           {inputText}
         </div>
         <div>
           <Image
-            src={MockingSpongebobNotHidden}
+            src={MockingSpongebob_hidden}
             width={200}
             height={200}
             alt="Mocking Spongebob"
@@ -265,7 +140,15 @@ const Page: React.FC = () => {
           />
         </div>
       </div>
->>>>>>> Features-Branch
+
+      <div>
+        {/* Verwende onChange statt onKeyUp, um Änderungen in Echtzeit zu erfassen */}
+        <textarea className={styles.textarea} onChange={handleInputChange} />
+      </div>
+
+      <div>{windowWidth}</div>
+
+   
 
       <button className={styles.button} onClick={downloadImg}>
         Als Bild herunterladen
