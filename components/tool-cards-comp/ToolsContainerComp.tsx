@@ -15,6 +15,16 @@ const ToolsContainerComp: React.FC<any> = () => {
           alt={"Mocking Spongebob"}
           href="/mockingspongebob/page"
         />
+
+        <MockingSpongebobComp
+          toolName={"Test"}
+          created={"12.12.2022"}
+          updated={"08.05.2024"}
+          description={"Test"}
+          img={MockingSpongebobImg200x200}
+          alt={"Mocking Spongebob"}
+          href="/mockingtest/page"
+        />
       </div>
     </div>
   );

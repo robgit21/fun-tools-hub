@@ -1,0 +1,39 @@
+.imgOutputContainer {
+     position: absolute;
+    width: 180px;
+    max-height: 190px;
+    background-color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Zentriert die Inhalte vertikal */
+    text-align: center;
+}
+
+.defaultSizeText {
+    font-size: 1em; /* Ändere die Schriftgröße nach Bedarf */
+  }
+
+.smallText {
+    font-size: 0.8em; /* Ändere die Schriftgröße nach Bedarf */
+  }
+
+.imgContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+}
+
+.img {
+    width: 200px;
+    height: 200px;
+}
+
+.container{
+  width: 200px;
+  height: 200px;
+}
