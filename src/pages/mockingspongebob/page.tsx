@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import MockingSpongebob from "../../../public/img/MockinSpongebob_big_2.jpg";
-import React, { useState, useRef } from "react";
+import MockingSpongebobNotHidden from "../../../public/img/MockingSpongebobImg.jpg";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./page.module.css";
 import html2canvas from "html2canvas";
 
@@ -8,23 +11,44 @@ const Page: React.FC = () => {
   const [inputText, setInputText] = useState<string>("");
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    // Funktion zum Aktualisieren der Fensterbreite
+    const updateWindowWidth = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Aktualisiere die Fensterbreite beim ersten Rendern der Komponente
+    updateWindowWidth();
+
+    // Event-Listener hinzufügen, um die Fensterbreite bei Änderungen zu aktualisieren
+    window.addEventListener("resize", updateWindowWidth);
+
+    // Event-Listener entfernen, wenn die Komponente unmontiert wird
+    return () => {
+      window.removeEventListener("resize", updateWindowWidth);
+    };
+  }, []); // leeres Abhängigkeitsarray stellt sicher, dass der Effekt nur einmal beim Rendern der Komponente ausgeführt wird
+
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const target = event.target as HTMLTextAreaElement;
     const newText = target.value;
 
     if (newText === "") {
-      setInputText(""); // Funktion ignorieren, wenn das Textfeld leer ist
+      setInputText("");
     }
 
-    // Erzeuge einen neuen Text mit den möglicherweise großgeschriebenen Buchstaben
     const newTextWithRandomCase = newText
-      .split("") // Text in ein Array von Buchstaben aufteilen
+      .split("")
       .map((char) => {
-        // Für jeden Buchstaben, überprüfe mit einer 50% Wahrscheinlichkeit, ob er großgeschrieben werden soll
         if (Math.random() < 0.5) {
-          return char.toUpperCase(); // Großschreibung
+          if (char === "s" || char === "S") {
+            char = "$";
+          }
+          return char.toUpperCase();
         } else {
-          return char.toLowerCase(); // Kleinschreibung
+          return char.toLowerCase();
         }
       })
       .join(""); // Array von Buchstaben in einen String zusammenführen
@@ -79,13 +103,14 @@ const Page: React.FC = () => {
 
   return (
     <div>
-      <div>
-        {/* Verwende onChange statt onKeyUp, um Änderungen in Echtzeit zu erfassen */}
-        <textarea className={styles.textarea} onChange={handleInputChange} />
-      </div>
-      <div ref={containerRef} className={`${styles.imgContainer}`}>
+      <div
+        ref={windowWidth >= 768 ? containerRef : null}
+        className={`${styles.imgContainer} ${styles.hidden}`}
+      >
         <div
-          className={`${styles.imgOutputContainer} ${styles.textContainer} ${
+          className={`${styles.imgOutputContainer}  ${styles.impact_font}  ${
+            styles.textContainer
+          } ${
             inputText.length > 180 ? styles.smallText : styles.defaultSizeText
           }`}
         >
@@ -101,6 +126,35 @@ const Page: React.FC = () => {
           />
         </div>
       </div>
+      <div>
+        {/* Verwende onChange statt onKeyUp, um Änderungen in Echtzeit zu erfassen */}
+        <textarea className={styles.textarea} onChange={handleInputChange} />
+      </div>
+
+      <div
+        ref={windowWidth < 768 ? containerRef : null}
+        className={`${styles.imgContainer}`}
+      >
+        <div
+          className={`${styles.imgOutputContainer} ${styles.textContainer} ${
+            styles.impact_font
+          } ${
+            inputText.length > 180 ? styles.smallText : styles.defaultSizeText
+          }`}
+        >
+          {inputText}
+        </div>
+        <div>
+          <Image
+            src={MockingSpongebobNotHidden}
+            width={200}
+            height={200}
+            alt="Mocking Spongebob"
+            priority={true} // oder priority="high"
+          />
+        </div>
+      </div>
+
       <button className={styles.button} onClick={downloadImg}>
         Als Bild herunterladen
       </button>

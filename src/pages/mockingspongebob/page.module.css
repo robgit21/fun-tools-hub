@@ -2,7 +2,7 @@
     position: absolute;
     width: 180px;
     max-height: 190px;
-    background-color: red;
+    /* background-color: red; */
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
@@ -36,4 +36,24 @@
 .container{
   width: 200px;
   height: 200px;
+}
+
+.hidden {
+  position: relative;
+  top: -300px;
+}
+
+@font-face {
+  font-family: 'Impact';
+  src: url('/fonts/impact.ttf') format('truetype'); /* Passe den Pfad zur Schriftartdatei an */
+}
+
+.impact_font {
+  font-family: 'Impact', sans-serif;
+  font-size: 20px;
+  color: white;
+  -webkit-text-stroke-width: 1.2px; /* Breite der Textkontur */
+  -webkit-text-stroke-color: black; /* Farbe der Textkontur */
+  text-stroke-width: 1px;
+  text-stroke-color: black;
 }
