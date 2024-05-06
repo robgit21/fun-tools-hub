@@ -48,19 +48,31 @@ const Page: React.FC = () => {
   };
 
   const downloadImg = () => {
-    // HTML-Inhalt in Canvas rendern
-    html2canvas(containerRef.current as HTMLDivElement).then((canvas) => {
-      // Bild aus dem Canvas erhalten
-      const image = canvas.toDataURL("image/png");
+    const container = containerRef.current;
 
-      // Bild herunterladen (wird im Browser angezeigt)
-      const link = document.createElement("a");
-      link.href = image;
-      link.download = "downloaded_image.png";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
+    // HTML-Inhalt in Canvas rendern
+    if (container) {
+      // Alle CSS-Regeln, die die Größe des Containers beeinflussen, vorübergehend entfernen
+      const previousStyles = container.style.cssText;
+      container.style.cssText = "";
+
+      // HTML-Inhalt in Canvas rendern, wobei die Größe des Canvas der Größe des Inhalts entspricht
+      html2canvas(container).then((canvas) => {
+        // Bild aus dem Canvas erhalten
+        const image = canvas.toDataURL("image/png");
+
+        // Bild herunterladen (wird im Browser angezeigt)
+        const link = document.createElement("a");
+        link.href = image;
+        link.download = "mockingspongebob_meme.png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // CSS-Regeln für den Container wiederherstellen
+        container.style.cssText = previousStyles;
+      });
+    }
   };
 
   return (
