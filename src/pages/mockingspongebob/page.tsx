@@ -1,7 +1,7 @@
 import Image from "next/image";
 import MockingSpongebob from "../../../public/img/MockingSpongebobImg.jpg";
 import React, { useState, useRef } from "react";
-import styles from "./Page.module.css";
+import styles from "./page.module.css";
 import html2canvas from "html2canvas";
 
 const Page: React.FC = () => {
