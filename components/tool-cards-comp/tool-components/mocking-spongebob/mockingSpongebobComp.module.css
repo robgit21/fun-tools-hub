@@ -1,0 +1,47 @@
+ 
+
+/* Media Query für Desktop-Bildschirme */
+@media only screen and (min-width: 768px) {
+    /* CSS-Regeln, die nur auf Desktop-Bildschirmen angewendet werden sollen */
+    .container {
+        display: flex;
+        background-color: red;
+        margin-bottom: 20px;
+        padding-left: 10px;
+        padding: 10px;
+        border-top-left-radius: 60px;
+        border-bottom-left-radius: 60px; 
+        border-top-right-radius: 20px; 
+        border-bottom-right-radius: 20px; 
+        margin: 10px;
+    }
+    
+    .image {
+        border-radius: 50%;
+    }
+    
+}
+
+
+/* Allgemeine CSS-Regeln für alle Bildschirmgrößen */
+
+/* Media Query für Smartphones */
+@media only screen and (max-width: 768px) {
+    /* CSS-Regeln, die nur auf Smartphones angewendet werden sollen */
+    .container {
+        display: flex;
+        background-color: green;
+        margin-bottom: 20px;
+        padding-left: 10px;
+        padding: 10px;
+        border-top-left-radius: 60px;
+        border-bottom-left-radius: 60px; 
+        border-top-right-radius: 20px; 
+        border-bottom-right-radius: 20px; 
+    }
+    
+    .image {
+        border-radius: 50%;
+    }
+    
+}
