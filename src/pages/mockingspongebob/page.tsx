@@ -148,7 +148,7 @@ const Page: React.FC = () => {
                 width={200}
                 height={200}
                 alt="Mocking Spongebob"
-                priority={true} // oder priority="high"
+                priority={true} // oder priority="high"f
               />
             </div>
           </div>
