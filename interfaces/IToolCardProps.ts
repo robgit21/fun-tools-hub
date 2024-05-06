@@ -7,5 +7,6 @@ interface IToolCardProps {
     description: string;
     img:StaticImageData;
     alt: string;
+    href: string;
 }
 export default IToolCardProps;
