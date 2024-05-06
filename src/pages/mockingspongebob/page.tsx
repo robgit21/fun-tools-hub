@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import MockingSpongebob from "../../../public/img/MockinSpongebob_big_2.jpg";
-import MockingSpongebobNotHidden from "../../../public/img/MockingSpongebobImg.jpg";
+import MockingSpongebob_hidden from "../../../public/img/MockinSpongebob_big_2.jpg";
+import MockingSpongebob_not_hidden from "../../../public/img/MockingSpongebobImg.jpg";
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./page.module.css";
 import html2canvas from "html2canvas";
@@ -101,59 +101,119 @@ const Page: React.FC = () => {
     }
   };
 
+  console.log(windowWidth);
+
   return (
     <div>
-      <div
-        ref={windowWidth >= 768 ? containerRef : null}
-        className={`${styles.imgContainer} ${styles.hidden}`}
-      >
-        <div
-          className={`${styles.imgOutputContainer}  ${styles.impact_font}  ${
-            styles.textContainer
-          } ${
-            inputText.length > 180 ? styles.smallText : styles.defaultSizeText
-          }`}
-        >
-          {inputText}
-        </div>
+      {windowWidth >= 768 && (
         <div>
-          <Image
-            src={MockingSpongebob}
-            width={200}
-            height={200}
-            alt="Mocking Spongebob"
-            priority={true} // oder priority="high"
-          />
+          <div className={`${styles.imgContainer} ${styles.hidden}`}>
+            <div
+              className={`${styles.imgOutputContainer}  ${
+                styles.impact_font
+              }  ${styles.textContainer} ${
+                inputText.length > 180
+                  ? styles.smallText
+                  : styles.defaultSizeText
+              }`}
+            >
+              {inputText}
+            </div>
+            <div>
+              <Image
+                src={MockingSpongebob_hidden}
+                width={200}
+                height={200}
+                alt="Mocking Spongebob"
+                priority={true} // oder priority="high"
+              />
+            </div>
+          </div>
+
+          <div ref={containerRef} className={`${styles.imgContainer}`}>
+            <div
+              className={`${styles.imgOutputContainer} ${
+                styles.textContainer
+              } ${styles.impact_font} ${
+                inputText.length > 180
+                  ? styles.smallText
+                  : styles.defaultSizeText
+              }`}
+            >
+              {inputText}
+            </div>
+            <div>
+              <Image
+                src={MockingSpongebob_not_hidden}
+                width={200}
+                height={200}
+                alt="Mocking Spongebob"
+                priority={true} // oder priority="high"
+              />
+            </div>
+          </div>
         </div>
-      </div>
+      )}
+
+      {windowWidth < 768 && (
+        <div>
+          <div
+            ref={containerRef}
+            className={`${styles.imgContainer} ${styles.hidden}`}
+          >
+            <div
+              className={`${styles.imgOutputContainer}  ${
+                styles.impact_font
+              }  ${styles.textContainer} ${
+                inputText.length > 180
+                  ? styles.smallText
+                  : styles.defaultSizeText
+              }`}
+            >
+              {inputText}
+            </div>
+            <div>
+              <Image
+                src={MockingSpongebob_hidden}
+                width={200}
+                height={200}
+                alt="Mocking Spongebob"
+                priority={true} // oder priority="high"
+              />
+            </div>
+          </div>
+
+          <div className={`${styles.imgContainer}`}>
+            <div
+              className={`${styles.imgOutputContainer} ${
+                styles.textContainer
+              } ${styles.impact_font} ${
+                inputText.length > 180
+                  ? styles.smallText
+                  : styles.defaultSizeText
+              }`}
+            >
+              {inputText}
+            </div>
+            <div>
+              <Image
+                src={MockingSpongebob_not_hidden}
+                width={200}
+                height={200}
+                alt="Mocking Spongebob"
+                priority={true} // oder priority="high"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       <div>
         {/* Verwende onChange statt onKeyUp, um Änderungen in Echtzeit zu erfassen */}
         <textarea className={styles.textarea} onChange={handleInputChange} />
       </div>
 
-      <div
-        ref={windowWidth < 768 ? containerRef : null}
-        className={`${styles.imgContainer}`}
-      >
-        <div
-          className={`${styles.imgOutputContainer} ${styles.textContainer} ${
-            styles.impact_font
-          } ${
-            inputText.length > 180 ? styles.smallText : styles.defaultSizeText
-          }`}
-        >
-          {inputText}
-        </div>
-        <div>
-          <Image
-            src={MockingSpongebobNotHidden}
-            width={200}
-            height={200}
-            alt="Mocking Spongebob"
-            priority={true} // oder priority="high"
-          />
-        </div>
-      </div>
+      <div>{windowWidth}</div>
 
       <button className={styles.button} onClick={downloadImg}>
         Als Bild herunterladen
