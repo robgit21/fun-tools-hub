@@ -82,14 +82,17 @@ const Page: React.FC = () => {
       </div>
       <div ref={containerRef} className={`${styles.imgContainer}`}>
         <div
-          className={`${styles.imgOutputContainer} ${styles.textContainer} ${
+          className={`${styles.imgOutputContainer} ${styles.img} ${
+            styles.textContainer
+          } ${
             inputText.length > 180 ? styles.smallText : styles.defaultSizeText
           }`}
         >
           {inputText}
         </div>
-        <div>
+        <div className={`${styles.img}`}>
           <Image
+            className={`${styles.img}`}
             src={MockingSpongebob}
             width={200}
             height={200}
