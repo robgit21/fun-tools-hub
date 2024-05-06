@@ -83,10 +83,7 @@ const Page: React.FC = () => {
         {/* Verwende onChange statt onKeyUp, um Änderungen in Echtzeit zu erfassen */}
         <textarea className={styles.textarea} onChange={handleInputChange} />
       </div>
-      <div
-        ref={containerRef}
-        className={`${styles.imgContainer}${styles.container}`}
-      >
+      <div className={`${styles.imgContainer}${styles.container}`}>
         <div
           className={`${styles.imgOutputContainer} ${styles.textContainer} ${
             inputText.length > 180 ? styles.smallText : styles.defaultSizeText
@@ -94,11 +91,11 @@ const Page: React.FC = () => {
         >
           {inputText}
         </div>
-        <div>
+        <div ref={containerRef}>
           <Image
             src={MockingSpongebob}
-            width={300}
-            height={300}
+            width={200}
+            height={200}
             alt="Mocking Spongebob"
             priority={true} // oder priority="high"
           />
