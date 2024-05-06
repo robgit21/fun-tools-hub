@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import MockingSpongebob_hidden from "../../../public/img/MockinSpongebob_big_2.jpg";
-import MockingSpongebob_not_hidden from "../../../public/img/MockingSpongebobImg.jpg";
+import MockingSpongebob from "../../../public/img/MockinSpongebob_big_2.jpg";
+import MockingSpongebobNotHidden from "../../../public/img/MockingSpongebobImg.jpg";
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./page.module.css";
 import html2canvas from "html2canvas";
@@ -12,6 +12,8 @@ const Page: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [windowWidth, setWindowWidth] = useState(0);
+
+  let maxLetterSize = 80;
 
   useEffect(() => {
     // Funktion zum Aktualisieren der Fensterbreite
@@ -101,21 +103,8 @@ const Page: React.FC = () => {
     }
   };
 
-  console.log(windowWidth);
-
   return (
     <div>
-      {windowWidth >= 768 && (
-        <div
-          ref={containerRef}
-          className={`${styles.imgContainer} ${styles.hidden}`}
-        >
-          {/* Inhalt, der nur gerendert wird, wenn die Fensterbreite größer oder gleich 768px ist */}
-        </div>
-      )}
-
-<div>
-
       <div
         ref={windowWidth >= 768 ? containerRef : null}
         className={`${styles.imgContainer} ${styles.hidden}`}
@@ -124,15 +113,16 @@ const Page: React.FC = () => {
           className={`${styles.imgOutputContainer}  ${styles.impact_font}  ${
             styles.textContainer
           } ${
-        </div>
-            inputText.length > 180 ? styles.smallText : styles.defaultSizeText
+            inputText.length > maxLetterSize
+              ? styles.smallText
+              : styles.defaultSizeText
           }`}
         >
           {inputText}
         </div>
         <div>
           <Image
-            src={MockingSpongebob_hidden}
+            src={MockingSpongebob}
             width={200}
             height={200}
             alt="Mocking Spongebob"
@@ -140,15 +130,40 @@ const Page: React.FC = () => {
           />
         </div>
       </div>
-
       <div>
         {/* Verwende onChange statt onKeyUp, um Änderungen in Echtzeit zu erfassen */}
-        <textarea className={styles.textarea} onChange={handleInputChange} />
+        <textarea
+          maxLength={130}
+          className={styles.textarea}
+          onChange={handleInputChange}
+        />
       </div>
 
-      <div>{windowWidth}</div>
-
-   
+      <div
+        ref={windowWidth < 768 ? containerRef : null}
+        className={`${styles.imgContainer}`}
+      >
+        <div
+          className={`${styles.imgOutputContainer} ${styles.textContainer} ${
+            styles.impact_font
+          } ${
+            inputText.length > maxLetterSize
+              ? styles.smallText
+              : styles.defaultSizeText
+          }`}
+        >
+          {inputText}
+        </div>
+        <div>
+          <Image
+            src={MockingSpongebobNotHidden}
+            width={200}
+            height={200}
+            alt="Mocking Spongebob"
+            priority={true} // oder priority="high"
+          />
+        </div>
+      </div>
 
       <button className={styles.button} onClick={downloadImg}>
         Als Bild herunterladen
