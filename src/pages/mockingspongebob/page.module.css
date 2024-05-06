@@ -13,11 +13,11 @@
 }
 
 .defaultSizeText {
-    font-size: 1em; /* Ändere die Schriftgröße nach Bedarf */
+    font-size: 25px; /* Ändere die Schriftgröße nach Bedarf */
   }
 
 .smallText {
-    font-size: 0.8em; /* Ändere die Schriftgröße nach Bedarf */
+    font-size: 20px; /* Ändere die Schriftgröße nach Bedarf */
   }
 
 .imgContainer{
@@ -51,9 +51,8 @@
 
 .impact_font {
   font-family: 'Impact', sans-serif;
-  font-size: 20px;
   color: white;
-  -webkit-text-stroke-width: 1.2px; /* Breite der Textkontur */
+  -webkit-text-stroke-width: 1.5px; /* Breite der Textkontur */
   -webkit-text-stroke-color: black; /* Farbe der Textkontur */
   text-stroke-width: 1px;
   text-stroke-color: black;

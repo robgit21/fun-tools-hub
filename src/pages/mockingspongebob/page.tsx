@@ -13,6 +13,8 @@ const Page: React.FC = () => {
 
   const [windowWidth, setWindowWidth] = useState(0);
 
+  let maxLetterSize = 80;
+
   useEffect(() => {
     // Funktion zum Aktualisieren der Fensterbreite
     const updateWindowWidth = () => {
@@ -111,7 +113,9 @@ const Page: React.FC = () => {
           className={`${styles.imgOutputContainer}  ${styles.impact_font}  ${
             styles.textContainer
           } ${
-            inputText.length > 180 ? styles.smallText : styles.defaultSizeText
+            inputText.length > maxLetterSize
+              ? styles.smallText
+              : styles.defaultSizeText
           }`}
         >
           {inputText}
@@ -128,7 +132,11 @@ const Page: React.FC = () => {
       </div>
       <div>
         {/* Verwende onChange statt onKeyUp, um Änderungen in Echtzeit zu erfassen */}
-        <textarea className={styles.textarea} onChange={handleInputChange} />
+        <textarea
+          maxLength={130}
+          className={styles.textarea}
+          onChange={handleInputChange}
+        />
       </div>
 
       <div
@@ -139,7 +147,9 @@ const Page: React.FC = () => {
           className={`${styles.imgOutputContainer} ${styles.textContainer} ${
             styles.impact_font
           } ${
-            inputText.length > 180 ? styles.smallText : styles.defaultSizeText
+            inputText.length > maxLetterSize
+              ? styles.smallText
+              : styles.defaultSizeText
           }`}
         >
           {inputText}
