@@ -9,7 +9,7 @@ const ToolsContainerComp: React.FC<any> = () => {
         <MockingSpongebobComp
           toolName={"Mocking Spongebob"}
           created={"12.12.2022"}
-          updated={"06.05.2024"}
+          updated={"08.05.2024"}
           description={"Eine toolbeschreibung"}
           img={MockingSpongebobImg200x200}
           alt={"Mocking Spongebob"}
