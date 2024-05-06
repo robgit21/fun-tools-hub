@@ -57,8 +57,8 @@ const Page: React.FC = () => {
 
       // HTML-Inhalt in Canvas rendern, wobei die Größe des Canvas der Größe des Inhalts entspricht
       html2canvas(container, {
-        width: container.offsetWidth, // Breite des Containers
-        height: container.offsetHeight, // Höhe des Containers
+        width: 200, // container.offsetWidth, // Breite des Containers
+        height: 200, // container.offsetHeight, // Höhe des Containers
       }).then((canvas) => {
         // Bild aus dem Canvas erhalten
         const image = canvas.toDataURL("image/png");
