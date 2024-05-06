@@ -1,6 +1,6 @@
 import MockingSpongebobComp from "./tool-components/mocking-spongebob/MockingSpongebobComp";
 import styles from "./toolsContainer.module.css";
-import MockingSpongebobImg from "../../public/img/MockingSpongebobImg.jpg";
+import MockingSpongebobImg200x200 from "../../public/img/MockinSpongebob200x200.jpg";
 
 const ToolsContainerComp: React.FC<any> = () => {
   return (
@@ -11,7 +11,7 @@ const ToolsContainerComp: React.FC<any> = () => {
           created={"12.12.2022"}
           updated={"12.12.2022"}
           description={"Eine toolbeschreibung"}
-          img={MockingSpongebobImg}
+          img={MockingSpongebobImg200x200}
           alt={"Mocking Spongebob"}
           href="/mockingspongebob/page"
         />
