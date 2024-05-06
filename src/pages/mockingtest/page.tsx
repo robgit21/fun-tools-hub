@@ -87,8 +87,8 @@ const Page: React.FC = () => {
       <div ref={containerRef}>
         <Image
           src={MockingSpongebob}
-          width={200}
-          height={200}
+          width={100}
+          height={100}
           alt="Mocking Spongebob"
           priority={true} // oder priority="high"
         />
