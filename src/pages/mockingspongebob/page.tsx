@@ -36,7 +36,7 @@ const Page: React.FC = () => {
     navigator.clipboard
       .writeText(inputText)
       .then(() => {
-        console.log("Text wurde erfolgreich in die Zwischenablage kopiert.");
+        console.log("Text wurde erfolgreich in die Zwischenablage kopiert...");
       })
       .catch((error) => {
         console.error(
