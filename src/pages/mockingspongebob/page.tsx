@@ -13,7 +13,7 @@ const Page: React.FC = () => {
     const newText = target.value;
 
     if (newText === "") {
-      return; // Funktion ignorieren, wenn das Textfeld leer ist
+      setInputText(""); // Funktion ignorieren, wenn das Textfeld leer ist
     }
 
     // Erzeuge einen neuen Text mit den möglicherweise großgeschriebenen Buchstaben
@@ -56,7 +56,10 @@ const Page: React.FC = () => {
       container.style.cssText = "";
 
       // HTML-Inhalt in Canvas rendern, wobei die Größe des Canvas der Größe des Inhalts entspricht
-      html2canvas(container).then((canvas) => {
+      html2canvas(container, {
+        width: container.offsetWidth, // Breite des Containers
+        height: container.offsetHeight, // Höhe des Containers
+      }).then((canvas) => {
         // Bild aus dem Canvas erhalten
         const image = canvas.toDataURL("image/png");
 
@@ -82,17 +85,14 @@ const Page: React.FC = () => {
       </div>
       <div ref={containerRef} className={`${styles.imgContainer}`}>
         <div
-          className={`${styles.imgOutputContainer} ${styles.img} ${
-            styles.textContainer
-          } ${
+          className={`${styles.imgOutputContainer} ${styles.textContainer} ${
             inputText.length > 180 ? styles.smallText : styles.defaultSizeText
           }`}
         >
           {inputText}
         </div>
-        <div className={`${styles.img}`}>
+        <div>
           <Image
-            className={`${styles.img}`}
             src={MockingSpongebob}
             width={200}
             height={200}
