@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MockingSpongebob_2 from "../../../public/img/MockinSpongebob200x200_2.jpg";
+import MockingSpongebob from "../../../public/img/MockinSpongebob_big_2.jpg";
 import React, { useState, useRef } from "react";
 import styles from "./page.module.css";
 import html2canvas from "html2canvas";
@@ -93,7 +93,7 @@ const Page: React.FC = () => {
         </div>
         <div>
           <Image
-            src={MockingSpongebob_2}
+            src={MockingSpongebob}
             width={200}
             height={200}
             alt="Mocking Spongebob"
