@@ -31,3 +31,20 @@ body {
     text-wrap: balance;
   }
 } */
+
+*{
+  margin: 0;
+  pad: 0;
+}
+
+:root {
+  --bg-color-mainpage: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(55,57,106,1) 100%);
+  --bg-color-cardimage: linear-gradient(90deg, rgba(2,1,22,1) 0%, rgba(21,22,47,1) 100%);
+}
+
+
+.mainbackground {
+  background: var(--bg-color-mainpage);
+}
+
+

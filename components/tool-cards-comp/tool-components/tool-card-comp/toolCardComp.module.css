@@ -22,6 +22,9 @@
     
 }
 
+.flexcontainer {
+    display: flex;
+}
 
 /* Allgemeine CSS-Regeln für alle Bildschirmgrößen */
 
@@ -30,18 +33,40 @@
     /* CSS-Regeln, die nur auf Smartphones angewendet werden sollen */
     .container {
         display: flex;
-        background-color: green;
+        background: var(--bg-color-cardimage);
+        min-width: 250px;
         margin-bottom: 20px;
         padding-left: 10px;
         padding: 10px;
-        border-top-left-radius: 60px;
-        border-bottom-left-radius: 60px; 
-        border-top-right-radius: 20px; 
-        border-bottom-right-radius: 20px; 
+        border-radius: 10px;
     }
     
     .image {
         border-radius: 50%;
+        padding-right: 10px;
     }
     
 }
+
+
+.textcontainer {
+    color: white;
+}
+
+.href{
+    text-decoration: none;
+}
+
+.textcontainer h1:first-child {
+    color: white;
+    font-size: 1.2em;
+    font-family: 'komikax', sans-serif;
+    margin-top: 1px;
+}
+
+
+@font-face {
+    font-family: 'Impact';
+    src: url('../../../../public/fonts/komikax/KOMIKAX_.ttf') format('truetype');
+  }
+   

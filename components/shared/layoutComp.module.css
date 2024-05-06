@@ -1,0 +1,19 @@
+/* styles.css */
+
+.container {
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  .content {
+    padding-bottom: 60px; /* Platz für den Footer */
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: lightgray;
+    padding: 10px;
+  }
+  

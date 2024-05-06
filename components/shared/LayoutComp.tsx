@@ -1,6 +1,7 @@
 import Head from "next/head";
 import NavigationComp from "./NavigationComp";
 import FooterComp from "./FooterComp";
+import styles from "./layoutComp.module.css";
 
 const LayoutComp: React.FC<any> = ({ children }) => {
   return (
@@ -11,9 +12,15 @@ const LayoutComp: React.FC<any> = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NavigationComp />
-      {children}
-      <FooterComp />
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <NavigationComp />
+          {children}
+        </div>
+        <footer className={styles.footer}>
+          <FooterComp />
+        </footer>
+      </div>
     </div>
   );
 };
