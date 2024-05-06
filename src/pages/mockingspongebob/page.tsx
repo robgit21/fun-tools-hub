@@ -12,7 +12,6 @@ const Page: React.FC = () => {
     const target = event.target as HTMLTextAreaElement;
     const newText = target.value;
 
-    // Überprüfe, ob das Textfeld leer ist
     if (newText === "") {
       return; // Funktion ignorieren, wenn das Textfeld leer ist
     }
