@@ -43,9 +43,10 @@
   top: -300px;
 }
 
+
 @font-face {
   font-family: 'Impact';
-  src: url('/fonts/impact.ttf') format('truetype'); /* Passe den Pfad zur Schriftartdatei an */
+  src: url('../../../public/fonts/impact/impact.ttf') format('truetype');
 }
 
 .impact_font {
