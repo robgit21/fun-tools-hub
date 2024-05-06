@@ -53,7 +53,7 @@ const Page: React.FC = () => {
     if (container) {
       // Alle CSS-Regeln, die die Größe des Containers beeinflussen, vorübergehend entfernen
       const previousStyles = container.style.cssText;
-      // container.style.cssText = "";
+      container.style.cssText = "";
 
       // HTML-Inhalt in Canvas rendern, wobei die Größe des Canvas der Größe des Inhalts entspricht
       html2canvas(container, {
@@ -83,7 +83,7 @@ const Page: React.FC = () => {
         {/* Verwende onChange statt onKeyUp, um Änderungen in Echtzeit zu erfassen */}
         <textarea className={styles.textarea} onChange={handleInputChange} />
       </div>
-      <div className={`${styles.imgContainer}${styles.container}`}>
+      <div ref={containerRef} className={`${styles.imgContainer}`}>
         <div
           className={`${styles.imgOutputContainer} ${styles.textContainer} ${
             inputText.length > 180 ? styles.smallText : styles.defaultSizeText
@@ -91,7 +91,7 @@ const Page: React.FC = () => {
         >
           {inputText}
         </div>
-        <div ref={containerRef}>
+        <div>
           <Image
             src={MockingSpongebob}
             width={200}
