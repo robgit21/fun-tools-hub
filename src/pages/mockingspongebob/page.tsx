@@ -97,8 +97,8 @@ const Page: React.FC = () => {
         <div>
           <Image
             src={MockingSpongebob}
-            width={100}
-            height={100}
+            width={300}
+            height={300}
             alt="Mocking Spongebob"
             priority={true} // oder priority="high"
           />
